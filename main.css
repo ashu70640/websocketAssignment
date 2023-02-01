@@ -1,0 +1,238 @@
+*::before,
+*::after,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+:root {
+    --sidebar-width: 20%;
+}
+
+body {
+    /* background-color: #006666; */
+    height: 1000px;
+    background: linear-gradient(to bottom, #66ff99 0%, #0066ff 100%);
+}
+
+
+/* position: relative; */
+
+
+/* .topDiv { */
+
+
+/* box-shadow: 5px 10px 8px 10px #888888; */
+
+
+/* box-shadow: 5px 10px 8px 10px #006666; */
+
+
+/* } */
+
+.container {
+    width: 60vw;
+    height: 70vh;
+    background-color: rgb(211, 36, 36);
+    margin: auto;
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 80%;
+    clear: both;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    box-shadow: 5px 10px 20px 10px #545454;
+}
+
+.sidebar {
+    background: linear-gradient(to top left, #33ccff 0%, #9999ff 100%);
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.mainbar {
+    background: linear-gradient(to top left, #66ff99 0%, #3399ff 100%);
+
+    /* position: relative; */
+}
+
+.board {
+    position: relative;
+    margin: auto;
+    margin-top: 10%;
+    /* top: 20%; */
+    /* left: 5%; */
+    /* display: grid; */
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    align-content: center;
+    display: none;
+}
+
+.cell {
+    /* position: relative; */
+    /* display: table; */
+    width: 100px;
+    height: 100px;
+    border: 1px solid #080b0b;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+}
+
+.cell:first-child,
+:nth-child(2),
+ :nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n+1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n) {
+    border-right: none;
+}
+
+.cell:last-child,
+:nth-child(8),
+ :nth-child(7) {
+    border-bottom: none;
+}
+
+h1 {
+   
+
+    display: block;
+    /* line-height: 2.5rem; */
+    color: #02485c;
+    text-align: center;
+    margin-top: 50px;
+    text-shadow: #03070c;
+}
+
+
+
+.newGame,
+.connectBtn {
+    display: block;
+    width: 95%;
+    margin: 15px auto;
+    height: 30px;
+    color: black;
+    border-radius: 10px;
+    border:1px;
+    font-size: 20px;
+    background-color: #aca9e5;
+}
+
+.joinLabel {
+    text-align: center;
+    display: block;
+    width: 95%;
+    margin: 15px auto;
+    margin-bottom: 0px;
+    height: 30px;
+    color: black;
+    font-size: 1.3rem;
+    border-radius: 10px;
+    background-color: #aca9e5;
+    margin-bottom: 5px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    /* display: block; */
+    width: 95%;
+    margin: 0 auto;
+    padding: 5px;
+    height: 30px;
+    border-radius: 10px;
+    /* color: white; */
+    font-size: 1rem;
+    background-color: #66657a;
+}
+
+.sidebar ul li:hover {
+    background-color: #75a3a3;
+}
+
+button[type='submit'] {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    /* margin-top: 0x; */
+    height: 30px;
+    color: black;
+    font-size: 1.3rem;
+    border:1rem;
+    background-color: #aca9e5;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.cell.x::before {
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 5px;
+    background-color: #0b0f0f;
+    transform: rotate(45deg);
+}
+
+.board.x .cell:not(.x):not(.circle):hover::after,
+.cell.x::after {
+    content: "";
+    position: absolute;
+    height: 100px;
+    width: 5px;
+    background-color: #0d1414;
+    transform: rotate(-45deg);
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.cell.circle::before {
+    content: '';
+    position: absolute;
+    height: 94px;
+    width: 90px;
+    background-color: #0c1212;
+    /* transform: rotate(45deg); */
+    border-radius: 50%;
+    /* display: inline-block; */
+}
+
+.board.circle .cell:not(.x):not(.circle):hover::after,
+.cell.circle::after {
+    content: "";
+    position: absolute;
+    height: 84px;
+    width: 80px;
+    /* background-color: #94b8b8; */
+    background-color: #6bd4d4;
+    border-radius: 50%;
+}
+
+
+/* .board.circle .cell:not(.x):not(.circle):hover::after, */
+
+.board.circle .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.x .cell:not(.x):not(.circle):hover::before {
+    background-color: #6ac4c4;
+}
